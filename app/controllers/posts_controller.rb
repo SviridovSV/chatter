@@ -2,12 +2,14 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all
+    posts = Post.all
+    @posts = RateCheckoutService.new(posts).remove_unpopular_posts
   end
 
   def show
     @comment = Comment.new
     @comment.post_id = @post.id
+    @rate = RateCheckoutService.new.average_rating(@post.comments)
   end
 
   def new
