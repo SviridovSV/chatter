@@ -1,6 +1,9 @@
 <div>
   <h4>Comment by <%= user_email(comment) %></h4>
-  <p class="comment"><%= comment.body %></p> <%= link_to "delete", post_comment_path(comment.post, comment), method: :delete, data: {confirm: "Really delete the comment?"} %>
+  <p class="comment"><%= comment.body %></p>
+  <% if can? :destroy, comment %>
+    <%= link_to "delete", post_comment_path(comment.post, comment), method: :delete, data: {confirm: "Really delete the comment?"} %>
+  <% end %>
   <p> Rate of Post <%=comment.rate_value %></p>
   <p>Posted <%= distance_of_time_in_words(comment.post.created_at, comment.created_at) %> later</p>
 </div>
