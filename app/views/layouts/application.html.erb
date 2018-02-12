@@ -11,6 +11,7 @@
   <body>
     <div id="nav">
       <% if current_user %>
+        <%= link_to "Home", root_path %>
         <%= link_to "Create Post", new_post_path %>
         <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
         <%= link_to "Logout", :logout, method: :post %>
@@ -22,7 +23,6 @@
     </div>
     <div>
       <p id="notice"><%= flash[:notice] %></p>
-      <p id="alert"><%= flash[:alert] %></p>
     </div>
     <%= yield %>
   </body>

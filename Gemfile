@@ -29,6 +29,7 @@ gem 'figaro'
 gem 'jquery-rails'
 gem 'bootstrap'
 gem 'sorcery'
+gem 'cancancan', '~> 2.0'
 
 group :development, :test do
   gem 'factory_bot_rails'

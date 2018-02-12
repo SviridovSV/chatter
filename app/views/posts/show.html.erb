@@ -1,5 +1,6 @@
 <h1><%= @post.title %></h1>
 <p><%= @post.content %></p>
+<h3>Rate of post <%= rate_exist? ? rating : 'is absent' %> </h3>
 <h3>Comments (<%= @post.comments.size %>)</h3>
 <%= render partial: 'posts/comment', collection: @post.comments.reverse %>
 <%= render partial: 'comments/form', post: @post %>
