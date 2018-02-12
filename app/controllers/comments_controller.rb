@@ -1,0 +1,24 @@
+class CommentsController < ApplicationController
+
+
+  def create
+    @comment = Comment.new(comment_params)
+    @comment.post_id = params[:post_id]
+
+    @comment.save
+
+    redirect_to post_path(@comment.post)
+  end
+
+  def destroy
+    @comment = current_user.comments.find(params[:id])
+    @comment.destroy
+    redirect_to post_path(params[:post_id])
+  end
+
+  private
+
+  def comment_params
+    params.require(:comment).permit(:body, :user_id)
+  end
+end

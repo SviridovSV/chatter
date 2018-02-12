@@ -6,10 +6,14 @@ class PostsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comment.post_id = @post.id
   end
 
   def new
     @post = Post.new
+    @comment = Comment.new
+    @comment.post_id = @post.id
   end
 
   def create

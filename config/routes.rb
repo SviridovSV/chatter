@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   root :to => 'posts#index'
   resources :user_sessions
   resources :users
-  resources :posts
+
+  resources :posts do
+    resources :comments
+  end
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
