@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   def index
     posts = Post.all
     @posts = RateCheckoutService.new(posts).remove_unpopular_posts
+    @posts = Post.search(params[:total_rate])
   end
 
   def show
@@ -49,6 +50,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :user_id)
+    params.require(:post).permit(:title, :content, :user_id, :total_rate)
   end
 end

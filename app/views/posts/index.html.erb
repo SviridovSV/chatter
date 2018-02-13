@@ -1,3 +1,9 @@
+<h3> Show only posts with rate </h3>
+<%= form_tag(posts_path, method: :get) do %>
+  <%= text_field_tag :total_rate, params[:total_rate] %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+
 <h1>All Posts</h1>
 
 <ul id="posts">
