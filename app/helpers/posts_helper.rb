@@ -5,11 +5,15 @@ module PostsHelper
 
   def rate_not_exist?
     user_comments = @post.comments.find_by(user_id: current_user.id)
-    return false unless user_comments
+    return true unless user_comments
     user_comments.rate_value.nil?
   end
 
   def rate_exist?
-    !@rate.nil?
+    !@post.total_rate.nil?
+  end
+
+  def number_of_comments(post)
+    post.comments.size
   end
 end

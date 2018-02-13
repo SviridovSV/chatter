@@ -14,6 +14,13 @@ class RateCheckoutService
     @posts
   end
 
+  def renew_total_rate_of_post(post)
+    post.total_rate = average_rating(post.comments)
+    post.save
+  end
+
+  private
+
   def average_rating(comments_array)
     rate_values = comments_array.map{ |comment| comment.rate_value }.compact
     quantity = rate_values.size

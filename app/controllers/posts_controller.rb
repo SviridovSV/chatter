@@ -9,7 +9,6 @@ class PostsController < ApplicationController
   def show
     @comment = Comment.new
     @comment.post_id = @post.id
-    @rate = RateCheckoutService.new.average_rating(@post.comments)
   end
 
   def new
