@@ -105,7 +105,7 @@ Rails.application.config.sorcery.configure do |config|
   #
   config.facebook.key = ENV["APP_ID"]
   config.facebook.secret = ENV["APP_SECRET"]
-  config.facebook.callback_url = "http://localhost:3000/oauth/callback?provider=facebook"
+  config.facebook.callback_url = "https://thawing-caverns-69109.herokuapp.com/oauth/callback?provider=facebook"
   config.facebook.user_info_mapping = {:email => "email"} #etc
   config.facebook.user_info_path = "me?fields=email"
   config.facebook.access_permissions = ["email"]
