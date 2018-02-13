@@ -1,8 +1,13 @@
-<h1><%= @post.title %></h1>
-<p><%= @post.content %></p>
-<h3>Rate of post <%= rate_exist? ? @post.total_rate : 'is absent' %> </h3>
-<h3>Comments (<%= number_of_comments(@post) %>)</h3>
+<div class="card text-white bg-primary mb-3" style="max-width: 52rem;">
+  <div class="card-header">Rate of post <%= rate_exist? ? @post.total_rate : 'is absent' %>| Comments (<%= number_of_comments(@post) %>)</div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @post.title %></h5>
+    <p class="card-text"><%= @post.content %></p>
+  </div>
+</div>
+
 <%= render partial: 'posts/comment', collection: @post.comments.reverse %>
+<br>
 <%= render partial: 'comments/form', post: @post %>
 <%= link_to "<< Back to Posts List", posts_path %>
 <% if can? :destroy, @post %>

@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   scope :filter_with, -> (rate) { where total_rate: rate }
 
@@ -8,7 +8,7 @@ class Post < ApplicationRecord
     unless rate.blank?
       filter_with(rate.to_i)
     else
-      all
+      order('created_at DESC')
     end
   end
 end

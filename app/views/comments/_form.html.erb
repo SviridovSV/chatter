@@ -1,19 +1,17 @@
-<h3>Post a Comment</h3>
 <%= form_for [ @post, @comment ] do |f| %>
 
-  <p>
-    <%= f.label :body %><br/>
-    <%= f.text_area :body %>
-  </p>
+  <div class="form-group">
+    <%= f.text_area :body, id: :inputBody, placeholder: "Create comment", class: "form-control" %>
+  </div>
   <% if rate_not_exist? %>
-    <p>
-      <%= f.label :rate %>
-      <%= f.text_field :rate_value, placeholder: "Only numbers 1-5" %>
-    </p>
+    <div class="form-group">
+      <%= f.label :rate, for: "inputRateValue" %>
+      <%= f.text_field :rate_value, id: :inputRateValue, placeholder: "Only numbers 1-5", class: "form-control" %>
+    </div>
   <% end %>
   <%= f.hidden_field :user_id, value: current_user.id %>
 
   <p>
-    <%= f.submit 'Submit' %>
+    <%= f.submit 'Create Comment', class: "btn btn-primary" %>
   </p>
 <% end %>

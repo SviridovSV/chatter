@@ -6,12 +6,17 @@
 
 <h1>All Posts</h1>
 
-<ul id="posts">
+<div class="list-group">
   <% @posts.each do |post| %>
-    <li>
-      <%= link_to post.title, post_path(post) %> Post rate <%= post.total_rate || 'is absent' %> Comments (<%= number_of_comments(post) %>)
-    </li>
+    <%= link_to post_path(post), class: "list-group-item list-group-item-action flex-column align-items-start" do %>
+
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1"><%= post.title %></h5>
+        <small class="text-muted">Comments (<%= number_of_comments(post) %>)</small>
+      </div>
+      <small class="text-muted">Post rate <%= post.total_rate || 'is absent' %></small>
+    <% end %>
   <% end %>
-</ul>
+</div>
 
 

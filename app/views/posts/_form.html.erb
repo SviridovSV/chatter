@@ -4,16 +4,16 @@
     <li><%= error %></li>
   <% end %>
   </ul>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </p>
+  <div class="form-group">
+    <%= f.label :title, for: "inputTitle" %>
+    <%= f.text_field :title, id: :inputTitle, placeholder: "Title of post", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :content, for: "inputContent" %>
+    <%= f.text_area :content, id: :inputContent, placeholder: "Enter post content here", class: "form-control" %>
+  </div>
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <p>
-    <%= f.submit %>
-  </p>
+
+  <%= f.submit "Create", class: "btn btn-primary" %>
+
 <% end %>
