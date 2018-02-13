@@ -1,24 +1,9 @@
-# README
+<p>Создать простой блог на Ruby on Rails:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- регистрация/авторизация пользователей, авторизация через Facebook;
+- пользователи могут создавать, редактировать и удалять посты;
+- пользователи могут комментировать посты и ставить им оценки (1-5, выводить на экран среднюю), так же могут удалять свои комментарии;
+- пользователи НЕ могут управлять чужими постами/комментариями;
+- посты, не набравшие средний рейтинг 3.0 спустя полчаса после создания, удаляются;
+- возможность фильтровать посты по среднему рейтингу (рейтинг указывает пользователь)
+</p>
