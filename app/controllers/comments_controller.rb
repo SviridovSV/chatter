@@ -6,7 +6,8 @@ class CommentsController < ApplicationController
     @comment.post_id = params[:post_id]
 
     if @comment.save
-      RateCheckoutService.new.renew_total_rate_of_post(set_post) if params[:rate_value]
+      binding.pry
+      RateCheckoutService.new.renew_total_rate_of_post(set_post) if @comment.rate_value
       redirect_to post_path(@comment.post)
     else
       redirect_to post_path(params[:post_id]), notice: 'Comment was not saved'
